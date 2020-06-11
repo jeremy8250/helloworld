@@ -8,8 +8,8 @@ stage('maven compile & package'){
     node('master'){
         sh ". ~/.bash_profile"
 
-	def mvnHome = tool 'apache-maven-3.6.3'
-	env .PATH = "${mvnHome}/bin:${env.PATH}"
+	def mvnHome = tool 'maven-3.6.3'
+	env.PATH = "${mvnHome}/bin:${env.PATH}"
 	sh "mv target/hellowworld.war target/ROOT.war"
     }
 }
