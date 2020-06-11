@@ -8,31 +8,33 @@ stage('maven compile & package'){
     node('master'){
         sh ". ~/.bash_profile"
 
-	def mvnHome = tool 'maven-3.6.3'
-	env.PATH = "${mvnHome}/bin:${env.PATH}"
-	sh "mv target/hellowworld.war target/ROOT.war"
+		def jdkHome = tool 'jdk_1.8.0'
+		def mvnHome = tool 'maven-3.6.3'
+		env.PATH = "${jdkHome}/bin:${env.PATH}"
+		env.PATH = "${mvnHome}/bin:${env.PATH}"
+		sh "mv target/hellowworld.war target/ROOT.war"
     }
 }
 
 stage('clean docker environment'){
     node('master'){
         try{
-	    sh 'docker stop mytomcat'
-	}catch(exec){
-	    echo 'mytomcat container is not running!'
+	    	sh 'docker stop mytomcat'
+		}catch(exec){
+	    	echo 'mytomcat container is not running!'
         }
 
-	try{
-	    sh 'docker rm mytomcat'
+		try{
+	    	sh 'docker rm mytomcat'
         }catch(exec){
-	    echo 'mytomcat container does not exist!'
+	    	echo 'mytomcat container does not exist!'
 	}
 
-	try{
-	    sh 'docker rmi mytomcat'
-	}catch(exec){
-	    echo 'mytomcat images does not exist!'
-	}
+		try{
+	    	sh 'docker rmi mytomcat'
+		}catch(exec){
+	    	echo 'mytomcat images does not exist!'
+		}
     }
 }
 
