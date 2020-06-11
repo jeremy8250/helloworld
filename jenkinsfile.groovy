@@ -43,5 +43,4 @@ stage('start docker container'){
 	}catch(exec){
 	    echo 'Start docker images failed, please check the environment!'
 	}
-    }
 }
