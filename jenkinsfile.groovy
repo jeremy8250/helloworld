@@ -12,7 +12,8 @@ stage('maven compile & package'){
 		def mvnHome = tool 'maven-3.6.3'
 		env.PATH = "${jdkHome}/bin:${env.PATH}"
 		env.PATH = "${mvnHome}/bin:${env.PATH}"
-		sh "mv target/hellowworld.war target/ROOT.war"
+		sh "mvn clean package"
+		sh "mv target/helloworld.war target/ROOT.war"
     }
 }
 
