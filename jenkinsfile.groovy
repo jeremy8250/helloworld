@@ -31,11 +31,6 @@ stage('clean docker environment'){
 	    	echo 'mytomcat container does not exist!'
 	}
 
-		try{
-	    	sh 'docker rmi tomcat:9.0.34'
-		}catch(exec){
-	    	echo 'mytomcat images does not exist!'
-		}
     }
 }
 
