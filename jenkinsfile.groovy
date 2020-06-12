@@ -8,8 +8,8 @@ stage('maven compile & package'){
     node('master'){
         sh ". ~/.bash_profile"
 
-		def jdkHome = tool 'jdk_1.8.0'
-		def mvnHome = tool 'maven-3.6.3'
+		def jdkHome = tool 'jdk8'
+		def mvnHome = tool 'maven'
 		env.PATH = "${jdkHome}/bin:${env.PATH}"
 		env.PATH = "${mvnHome}/bin:${env.PATH}"
 		sh "mvn clean package"
