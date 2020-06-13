@@ -3,11 +3,11 @@ FROM tomcat:latest
 
 USER root
 WORKDIR /usr/local/
-RUN yum install -y wget
+#RUN yum install -y wget
 RUN wget -c https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 RUN tar zxvf apache-maven-3.6.3-bin.tar.gz
 
-RUN yum install -y git
+#RUN yum install -y git
 RUN mkdir /root/.ssh/
 RUN echo "${SSH_PRIVATE_KEY}" > /root/.ssh/id_rsa
 
