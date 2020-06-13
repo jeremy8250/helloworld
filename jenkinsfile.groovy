@@ -37,7 +37,7 @@ stage('clean docker environment'){
 stage('start docker container') {
 	node('master') {
 		try {
-			sh 'docker run --name mytomcat -d -p 8089:8080 tomcat:9.0.34'
+			sh 'docker run --name mytomcat -d -p 8089:8080 tomcat:latest'
 		} catch (exec) {
 			echo 'Start docker images failed, please check the environment!'
 		}

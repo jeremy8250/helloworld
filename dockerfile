@@ -1,4 +1,4 @@
-FROM tomcat:9.0.34
+FROM tomcat
 
 ADD entrypoint.sh /root
 
