@@ -20,7 +20,7 @@ ADD target/ROOT.war /usr/local/tomcat/webapps
 
 EXPOSE 8080
 
-#CMD ["/usr/local/tomcat/bin/startup.sh","run"]
+CMD ["/usr/local/tomcat/bin/startup.sh","run"]
 
 #ENTRYPOINT ["/bin/bash","/root/entrypoint.sh" ]
-ENTRYPOINT ["/bin/bash","/usr/local/tomcat/bin/startup.sh" ]
+#ENTRYPOINT ["/bin/bash","/usr/local/tomcat/bin/startup.sh" ]
