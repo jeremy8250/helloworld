@@ -22,4 +22,4 @@ EXPOSE 8080
 
 CMD ["/usr/local/tomcat/bin/startup.sh","run"]
 
-ENTRYPOINT ["/bin/bash","/root/entrypoint.sh" ]
+#ENTRYPOINT ["/bin/bash","/root/entrypoint.sh" ]
