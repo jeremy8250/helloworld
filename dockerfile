@@ -1,6 +1,6 @@
 FROM tomcat:latest
 
-#ADD entrypoint.sh /root/
+ADD entrypoint.sh /root/
 
 USER root
 WORKDIR /usr/local/
@@ -22,5 +22,4 @@ EXPOSE 8080
 
 CMD ["/usr/local/tomcat/bin/startup.sh","run"]
 
-#ENTRYPOINT ["/bin/bash","/root/entrypoint.sh" ]
-#ENTRYPOINT ["/bin/bash","/usr/local/tomcat/bin/startup.sh" ]
+ENTRYPOINT ["/bin/bash","/root/entrypoint.sh" ]
