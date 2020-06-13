@@ -19,7 +19,7 @@ ENV PATH=$PATH:$MAVEN_HOME/bin:$JAVA_HOME/bin
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 RUN rm -rf /usr/local/tomcat/webapps/ROOT.war
 
-ADD target/helloworld.war /usr/local/tomcat/webapps
+ADD target/ROOT.war /usr/local/tomcat/webapps
 
 EXPOSE 8080
 
