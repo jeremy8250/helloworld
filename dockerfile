@@ -1,6 +1,5 @@
-FROM tomcat
+FROM tomcat:latest
 
-ADD entrypoint.sh /root
 
 USER root
 WORKDIR /usr/local/
