@@ -20,21 +20,21 @@ stage('maven compile & package'){
 stage('clean docker environment'){
     node('master'){
         try{
-    	    sh 'docker stop mytomcat'
+    	    sh 'docker stop tomcat'
 	}catch(exc){
-	    echo 'mytomcat container is not running!'
+	    echo 'tomcat container is not running!'
         }
 
 	try{
-	    sh 'docker rm mytomcat'
+	    sh 'docker rm tomcat'
         }catch(exc){
-	    echo 'mytomcat container does not exist!'
+	    echo 'tomcat container does not exist!'
 	}
 
         try{
-            sh 'docker rmi tomcat:latest'
+            sh 'docker rmi mytomcat'
         }catch(exc){
-            echo 'tomcat image does not exist!'
+            echo 'myromcat image does not exist!'
         }
 
     }
@@ -53,9 +53,9 @@ stage('make docker imager'){
 stage('start docker container') {
 	node('master') {
 		try {
-			sh 'docker run --name mytomcat -d -p 8089:8080 tomcat:latest'
+		    sh 'docker run --name tomcat -d -p 8089:8080 mytomcat'
 		} catch (exec) {
-			echo 'Start docker images failed, please check the environment!'
+		    echo 'Start docker images failed, please check the environment!'
 		}
 	}
 }
